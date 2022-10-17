@@ -67,4 +67,4 @@ async def echo(client, message):
 			except Exception as e:
 					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n join @lntechnical")
 	else:
-		await  message.reply_text("Select language 👇",reply_to_message_id = message.message_id, reply_markup =keybord1)
+		await  message.reply_text("Select language 👇",reply_to_message_id = message.id, reply_markup =keybord1)
