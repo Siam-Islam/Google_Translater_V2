@@ -53,7 +53,7 @@ async def echo(client, message):
 	if code :
 			try:
 				translator = Translator()
-				translation = translator.translate(message.text,dest = code)
+				translation = translator.translate(message.text,dest = code,f'<pre></pre>)
 			except Exception as e:
 				await message.reply_text(f"Error : {e}")
 				return
