@@ -63,6 +63,9 @@ async def echo(client, message):
 							fromt = i
 						if list[i] == translation.dest:
 							to = i
+                        except Exception as e:
+                                await message.reply_text(f"Error : {e}")
+				return
 
 		await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n join @lntechnical")
 			except Exception as e:
