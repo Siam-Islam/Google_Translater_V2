@@ -52,17 +52,19 @@ async def echo(client, message):
 		
 	if code :
 			try:
+				translator = Translator()
+				translation = translator.translate(message.text,dest = code)
+			except Exception as e:
+				await message.reply_text(f"Error : {e}")
+				return
+			try:
 					for i in list:
 						if list[i]==translation.src:
 							fromt = i
 						if list[i] == translation.dest:
 							to = i
-                        except Exception as e:
-                                await message.reply_text(f"Error : {e}")
-				return
-
-		                        await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n join @lntechnical")
+					await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```\n\n join @lntechnical")
 			except Exception as e:
-		                        await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n join @lntechnical")
-        else:
-                        await message.reply_text("Select language 👇",reply_to_message_id = message.id, reply_markup =keybord1)
+					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```\n\n join @lntechnical")
+	else:
+		await  message.reply_text("Select language 👇",reply_to_message_id = message.message_id, reply_markup =keybord1)
