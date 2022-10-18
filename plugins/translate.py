@@ -16,34 +16,6 @@ async def start(client, message):
             
 @Client.on_message(filters.private & filters.text)
 async def echo(client, message):
-	keybord1= InlineKeyboardMarkup( [
-        [ 
-            InlineKeyboardButton("Afrikaans", callback_data='af'),
-             InlineKeyboardButton("Albanian", callback_data='sq'),
-            InlineKeyboardButton("Amharic",callback_data ='am'),
-        ],
-        [   InlineKeyboardButton("Arabic", callback_data='ar'),
-        InlineKeyboardButton("Armenian", callback_data='hy'),      
-        InlineKeyboardButton("Azerbaijani",callback_data = 'az'),        
-        ],
-        [InlineKeyboardButton("Basque",callback_data ="eu"),
-        	 InlineKeyboardButton("Belarusian",callback_data ="be"),       	
-	InlineKeyboardButton("Bengali",callback_data="bn")],
-	
-	[InlineKeyboardButton("Bosnian",callback_data = "bs"),
-	InlineKeyboardButton("Bulgarian",callback_data ="bg"),
-	InlineKeyboardButton("Catalan",callback_data = "ca")
-	],
-	[ 
-	InlineKeyboardButton("Corsican",callback_data ="co"),
-	InlineKeyboardButton("Croatian",callback_data = "hr"),
-	InlineKeyboardButton("Czech", callback_data = "cs"),
-	],
-	[ InlineKeyboardButton("Danish",callback_data = "da"),
-	InlineKeyboardButton("Dutch",callback_data = "nl"),
-	InlineKeyboardButton("Esperanto",callback_data = "eo")	 
-	]
-	] )
 	try:
 		code =find(int(message.chat.id))
 	except Exception as e:
@@ -63,8 +35,8 @@ async def echo(client, message):
 							fromt = i
 						if list[i] == translation.dest:
 							to = i
-					await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```Me```\n\n join @lntechnical")
+					await message.reply_text(f"Translated from **{fromt.capitalize()}** To **{to.capitalize()}**\n\n```{translation.text}```")
 			except Exception as e:
-					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```Hi```\n\n join @lntechnical")
+					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```")
 	else:
-		await  message.reply_text("Select language 👇",reply_to_message_id = message.id, reply_markup =keybord1)
+		await  message.reply_text(Set language first.)
