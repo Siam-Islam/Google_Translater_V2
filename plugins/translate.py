@@ -39,4 +39,4 @@ async def echo(client, message):
 			except Exception as e:
 					await message.reply_text(f"Translated from **{translation.src}** To **{translation.dest}**\n\n```{translation.text}```")
 	else:
-		await  message.reply_text(Set language first.)
+		await  message.reply_text("Set language first.")
