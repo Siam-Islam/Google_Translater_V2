@@ -10,9 +10,7 @@ async def start(client, message):
             
 @Client.on_message(filters.private & filters.text)
 async def echo(client, message):
-           code =find(int(message.chat.id))
-
-	if code :
+	if find(int(message.chat.id)) :
 			try:
 				translator = Translator()
 				translation = translator.translate(message.text,dest = code)
