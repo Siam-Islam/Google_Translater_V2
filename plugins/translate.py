@@ -9,13 +9,16 @@ async def start(client, message):
           await message.reply_text(text =f"Hello **{message.from_user.first_name }** \n\n __I am simple Google Translater Bot \n I can translate any language to you selected language__",reply_to_message_id = message.id , reply_markup=InlineKeyboardMarkup(            [                [                    InlineKeyboardButton("Support 🇮🇳" ,url="https://t.me/lntechnical") ],                 [InlineKeyboardButton("Subscribe 🧐", url="https://youtube.com/c/LNtechnical"),InlineKeyboardButton("How To Use",url = "https://youtu.be/dUYvenXiYKE") ]           ]        ) )
             
             
-@Client.on_message(filters.group & filters.text)
+@Client.on_message(filters.private & filters.command(["ti"]))
 async def echo(client, message):
-	if (message.reply_to_message):
+	if find(int(message.chat.id)):
 			try:
-				translator = Translator()
-				translation = translator.translate(message.reply_to_message.text,dest = find(int(message.chat.id)))
-			except Exception as e:
+		             lgcd = message.text.split("/ti")
+			     lg_cd = lgcd[1].lower().replace(" ", "")
+			     tr_text = message.text
+			     translator = Translator()
+			     translation = translator.translate(tr_text,dest = lg_cd)
+		           except Exception as e:
 				await message.reply_text(f"Error : {e}")
 				return
 			try:
