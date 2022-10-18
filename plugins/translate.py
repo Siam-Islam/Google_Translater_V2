@@ -13,7 +13,7 @@ async def echo(client, message):
 	if find(int(message.chat.id)) :
 			try:
 				translator = Translator()
-				translation = translator.translate(message.text,dest = code)
+				translation = translator.translate(message.text,dest = find(int(message.chat.id)))
 			except Exception as e:
 				await message.reply_text(f"Error : {e}")
 				return
