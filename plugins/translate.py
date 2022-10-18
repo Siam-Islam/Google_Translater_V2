@@ -1,6 +1,7 @@
 from googletrans import Translator
 from pyrogram import Client, filters
 from helper.database import find , insert
+from helper.list import list
 
 @Client.on_message(filters.private & filters.command(['start']))
 async def start(client, message):
