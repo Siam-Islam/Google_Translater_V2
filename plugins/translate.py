@@ -10,12 +10,10 @@ async def start(client, message):
             
 @Client.on_message(filters.private & filters.text)
 async def echo(client, message):
-	try:
-		code =find(int(message.chat.id))
-	except Exception as e:
-		await message.reply_text(f" Error : {e}\nclick /start ........")
-		return 
-		
+              code =find(int(message.chat.id)) 
+	  except :
+	      print("error")
+
 	if code :
 			try:
 				translator = Translator()
