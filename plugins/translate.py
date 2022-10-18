@@ -11,8 +11,9 @@ async def start(client, message):
 @Client.on_message(filters.private & filters.text)
 async def echo(client, message):
               code =find(int(message.chat.id)) 
-	  except :
+	  except Exception as e:
 	      print("error")
+              return
 
 	if code :
 			try:
